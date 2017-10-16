@@ -7,6 +7,10 @@
     "test": "test"
   },
   "scripts": {
+    "create:db": "createdb grocery_store",
+    "drop:db": "dropdb grocery_store",
+    "load:db": "psql grocery_store < ./database/schema.sql",
+    "seed:db": "psql grocery_store < ./database/load-data.sql",
     "start": "node store.js",
     "test": "mocha"
   },
