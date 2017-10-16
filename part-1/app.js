@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const app = express();
 
 app.use(bodyParser.json());
-app.set('Content-Type')
+
 // GET requests to the /api/days/:day route responds with content type text/plain, as described in the example above
 
 app.get('/', (request, response) => {
@@ -35,6 +35,20 @@ app.get('/api/days/:day', (request, response) => {
   }
 });
 
+
+app.post('/api/array/concat', (request, response) => {
+  const { array1, array2 } = request.body;
+  if (Array.isArray(array1) && Array.isArray(array2)) {
+    const results = array1.concat(array2);
+    response.status(200);
+    response.type('application/json');
+    response.send({ results });
+  } else {
+    response.status(400);
+    response.type('application/json');
+    response.send({ "Error":"Input data should be of type array." });
+  }
+});
 
 
 const port = process.env.PORT || 3000;
