@@ -1,0 +1,32 @@
+{
+  "name": "part-2",
+  "version": "1.0.0",
+  "description": "Command Line Grocery Store",
+  "main": "store",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node store.js",
+    "test": "mocha"
+  },
+  "keywords": [
+    "sql",
+    "postgres",
+    "node"
+  ],
+  "author": "James McCormack",
+  "license": "MIT",
+  "devDependencies": {
+    "ajv": "^5.2.2",
+    "chai": "^4.1.2",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.3.0"
+  },
+  "dependencies": {
+    "pg-promise": "^7.0.2"
+  }
+}
