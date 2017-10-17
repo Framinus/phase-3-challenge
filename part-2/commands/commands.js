@@ -4,24 +4,31 @@ const { allSectionProducts, allOrdersforShopper, listRealShoppers } = require('.
 const productList = (args) => {
   allSectionProducts(args)
     .then((products) => {
+      console.log(`\n`);
       print.pt(products);
+      console.log(`\n`);
+      process.exit();
     })
     .catch(console.error);
 };
 
-console.log(productList('dairy'));
-
 const shopperOrders = (args) => {
   allOrdersforShopper(args)
     .then((orders) => {
+      console.log(`\n`);
       print.pt(orders);
+      console.log(`\n`);
+      process.exit();
     });
 };
 
 const realShoppers = () => {
   listRealShoppers()
     .then((shoppers) => {
+      console.log(`\n`);
       print.pt(shoppers);
+      console.log(`\n`);
+      process.exit();
     })
     .catch(console.error);
 };
