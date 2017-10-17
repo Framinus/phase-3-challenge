@@ -1,4 +1,4 @@
-const pgp = require('pg-promise');
+const pgp = require('pg-promise')();
 
 const connection = {
   host: 'localhost',
@@ -9,8 +9,8 @@ const connection = {
 const db = pgp(connection);
 
 // this one is complete.
-const listAllProductsfromSection = (section) => {
-  return db.any(`SELECT name, section FROM grocery_items WHERE section=$1`, section);
+const allSectionProducts = (section) => {
+  return db.any(`SELECT * FROM grocery_items WHERE section=$1`, section);
 };
 
 // List all orders for a given shopper id, returns the order id, and the total cost of each order. This is the hardest one.
@@ -35,4 +35,4 @@ const listRealShoppers = () => {
     GROUP BY shopper_name`);
 };
 
-module.exports = { listAllProductsfromSection, allOrdersforShopper };
+module.exports = { allSectionProducts, allOrdersforShopper, listRealShoppers };
