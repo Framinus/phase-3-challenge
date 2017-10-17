@@ -15,7 +15,15 @@ const listAllProductsfromSection = (section) => {
 
 // List all orders for a given shopper id, returns the order id, and the total cost of each order. This is the hardest one.
 const allOrdersforShopper = (shopperId) => {
-  return db.any(``, shopperId);
+  return db.any(`SELECT orders.order_id, SUM(grocery_items.price)
+      FROM orders
+      JOIN order_items
+        ON orders.order_id = order_items.order_id
+      JOIN grocery_items
+        ON order_items.item_id = grocery_items.item_id
+        WHERE orders.order_shopper_id=$1
+        GROUP BY orders.order_id
+      `, shopperId);
 };
 
 // List all the shoppers that have at least 1 order, and also display the number of orders for them.
