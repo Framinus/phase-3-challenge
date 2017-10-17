@@ -1,31 +1,46 @@
 const mocha = require('mocha');
 const expect = require('chai').expect;
 
-const { productList, shopperOrders, realShoppers } = require('../commands/commands.js');
+const { allSectionProducts, allOrdersforShopper, listRealShoppers } = require('../database/database.js');
 
-describe('productList', function () {
+describe('allSectionProducts', function () {
   it('should be a function', function () {
-    expect(productList).to.be.a('function');
+    expect(allSectionProducts).to.be.a('function');
   });
-  it('should return a list of dairy products if the argument dairy is given', function () {
-    // future test here
+  it('should return a list of frozen products if the argument frozen is given', function () {
+    return allSectionProducts('frozen')
+      .then((products) => {
+        expect(products.length).to.equal(3);
+      });
+  });
+  it('should return a list of 3 bulk items if the argument bulk is given', function () {
+    return allSectionProducts('bulk')
+      .then((products) => {
+        expect(products.length).to.equal(3);
+      });
   });
 });
 
-describe('shopperOrders', function () {
-  it('should be a function', function() {
-    expect(shopperOrders).to.be.a('function');
+describe('allOrdersforShopper', function () {
+  it('should be a function', function () {
+    expect(allOrdersforShopper).to.be.a('function');
   });
   it('should return order_ids related to the shopper_id given', function () {
-    // future test here.
+    return allOrdersforShopper(1)
+      .then((orders) => {
+        expect(orders.length).to.equal(2);
+      });
   });
 });
 
-describe('realShoppers', function () {
+describe('listRealShoppers', function () {
   it('should be a function', function () {
-    expect(realShoppers).to.be.a('function');
+    expect(listRealShoppers).to.be.a('function');
   });
   it('should return a list of shoppers who have at least one order when called', function () {
-    // future test here
+    return listRealShoppers()
+      .then((shoppers) => {
+        expect(shoppers.length).to.equal(4);
+      });
   });
 });
