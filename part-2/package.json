@@ -32,6 +32,7 @@
     "mocha": "^4.0.1"
   },
   "dependencies": {
+    "node-print": "0.0.4",
     "pg-promise": "^7.0.2"
   }
 }
