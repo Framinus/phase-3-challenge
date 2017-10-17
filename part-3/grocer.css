@@ -113,3 +113,41 @@ body {
 .item-price {
   flex: 0;
 }
+
+/*Modal*/
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-open {
+  display: flex;
+}
+
+.modal-window {
+  background-color: #fff;
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow: auto;
+  padding: 1em;
+  position: relative;
+}
+
+.modal-window .modal-close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#cart-button {
+  
+}

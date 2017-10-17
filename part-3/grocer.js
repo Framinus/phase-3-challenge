@@ -2,8 +2,24 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
 
   const cartButton = document.getElementById("cart-button");
-
+  const modalCloseButton = document.querySelector('.modal-close-button');
   const cartCount = document.getElementById("cart-item-count");
+
+  let cartCounter = parseInt(cartCount.innerText, 10);
+  let modal = document.querySelector('.modal');
+
+  cartButton.addEventListener('click', (event) => {
+    console.log('cart button clicked');
+    event.preventDefault();
+    modal.classList.add('modal-open');
+  });
+
+  modalCloseButton.addEventListener('click', (event) => {
+    console.log('close button clicked');
+    modal.classList.remove('modal-open');
+  })
+
+  // event listners for product buttons:
   const onionButton = document.getElementById("onion-button");
   const tomatoButton = document.getElementById("tomato-button");
   const carrotButton = document.getElementById("carrot-button");
@@ -11,13 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const ojButton = document.getElementById("oj-button");
   const icecreamButton = document.getElementById("icecream-button");
   const pizzaButton = document.getElementById("pizza-button");
-
-  let cartCounter = parseInt(cartCount.innerText, 10);
-
-  cartButton.addEventListener('click', (event) => {
-    console.log('cart button clicked');
-    // will eventually open modal.
-  });
 
   onionButton.addEventListener('click', (event) => {
     console.log('onion button clicked');
