@@ -11,6 +11,10 @@
     "drop:db": "dropdb grocery_store",
     "load:db": "psql grocery_store < ./database/schema.sql",
     "seed:db": "psql grocery_store < ./database/load-data.sql",
+    "create:db:test": "createdb grocery_store_test",
+    "drop:db:test": "dropdb grocery_store_test",
+    "load:db:test": "psql grocery_store_test < ./database/schema.sql",
+    "seed:db:test": "psql grocery_store_test < ./database/load-data.sql",
     "start": "node store.js",
     "test": "mocha"
   },
