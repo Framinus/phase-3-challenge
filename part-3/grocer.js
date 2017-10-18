@@ -44,59 +44,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartList = document.querySelector('.cart-list');
 
   // event listeners for product buttons:
-  const onionButton = document.getElementById("onion-button");
-  const tomatoButton = document.getElementById("tomato-button");
-  const carrotButton = document.getElementById("carrot-button");
-  const coldcutButton = document.getElementById("coldcut-button");
-  const ojButton = document.getElementById("oj-button");
-  const icecreamButton = document.getElementById("icecream-button");
-  const pizzaButton = document.getElementById("pizza-button");
+  const itemButtons = document.querySelectorAll(".item-button");
+  console.log(itemButtons);
 
-  onionButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-    const addItem = document.createElement('li');
-    addItem.className = 'listItem';
-    const itemName = event.target.previousElementSibling.previousElementSibling.innerText;
-    const nameSpan = document.createElement('span');
-    nameSpan.innerText = itemName;
-    addItem.appendChild(nameSpan);
-    const itemPrice = event.target.previousElementSibling.innerText;
-    const priceSpan = document.createElement('span');
-    priceSpan.innerText = itemPrice;
-    addItem.appendChild(priceSpan);
-    cartList.appendChild(addItem);
+  itemButtons.forEach((button) => {
+    button.addEventListener('click',(event) => {
+      cartCounter += 1;
+      cartCount.innerText = cartCounter;
+      const addItem = document.createElement('div');
+      addItem.className = 'list-item';
+      const itemName = event.target.previousElementSibling.previousElementSibling.innerText;
+      const nameSpan = document.createElement('span');
+      nameSpan.className = 'modal-span';
+      nameSpan.innerText = itemName;
+      addItem.appendChild(nameSpan);
+      const itemPrice = event.target.previousElementSibling.innerText;
+      const priceSpan = document.createElement('span');
+      priceSpan.className = 'modal-span';
+      priceSpan.innerText = itemPrice;
+      addItem.appendChild(priceSpan);
+      cartList.appendChild(addItem);
+    });
   });
 
-  tomatoButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
-
-  carrotButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
-
-  coldcutButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
-
-  ojButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
-
-  icecreamButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
-
-  pizzaButton.addEventListener('click', (event) => {
-    cartCounter += 1;
-    cartCount.innerText = cartCounter;
-  });
 
 
 
