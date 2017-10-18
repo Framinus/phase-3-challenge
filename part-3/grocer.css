@@ -152,29 +152,17 @@ body {
   overflow: hidden;
 }
 
-.cart-title {
-  text-align: center;
-}
-
-.cart-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
 .list-title {
+  border: 1px solid red;
   font-weight: bold;
-  margin: 0 22px;
-}
-
-.list-item {
-  align-content: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  margin: 5px 20px;
 }
 
 .modal-span {
-  margin: 5px 20px;
+  border: 1px solid red;
+  padding: 10px;
+}
+
+.heading {
+  font-weight: bold;
 }
