@@ -20,7 +20,7 @@ const productList = (args) => {
 };
 
 const shopperOrders = (args) => {
-  const shopperIDArray = [1, 2, 3, 4, 5];
+  const shopperIDArray = ["1", "2", "3", "4", "5"];
   if (!shopperIDArray.includes(args)) {
     throw new Error('must enter a valid shopper id');
   }

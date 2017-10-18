@@ -1,9 +1,11 @@
 const pgp = require('pg-promise')();
 
+const databaseName = process.env.NODE_ENV === 'test' ? 'grocery_store_test' : 'grocery_store';
+
 const connection = {
   host: 'localhost',
   port: 5432,
-  database: 'grocery_store',
+  database: databaseName,
 };
 
 const db = pgp(connection);
@@ -32,4 +34,4 @@ const listRealShoppers = () => {
     GROUP BY shopper_name`);
 };
 
-module.exports = { allSectionProducts, allOrdersforShopper, listRealShoppers };
+module.exports = { db, allSectionProducts, allOrdersforShopper, listRealShoppers };
