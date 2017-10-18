@@ -148,6 +148,6 @@ body {
   right: 0;
 }
 
-#cart-button {
-  
+.showing-modal {
+  overflow: hidden;
 }
