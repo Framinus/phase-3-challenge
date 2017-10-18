@@ -13,7 +13,7 @@ const allSectionProducts = (section) => {
 };
 
 const allOrdersforShopper = (shopperId) => {
-  return db.any(`SELECT orders.order_id, SUM(grocery_items.price)
+  return db.any(`SELECT orders.order_id, SUM(grocery_items.price) AS order_total
       FROM orders
       JOIN order_items
         ON orders.order_id = order_items.order_id
@@ -25,7 +25,7 @@ const allOrdersforShopper = (shopperId) => {
 };
 
 const listRealShoppers = () => {
-  return db.any(`SELECT shoppers.shopper_name, COUNT(orders.order_id)
+  return db.any(`SELECT shoppers.shopper_name, COUNT(orders.order_id) AS number_of_orders
     FROM shoppers
     JOIN orders
     ON shoppers.shopper_id = orders.order_shopper_id
