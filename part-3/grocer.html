@@ -11,7 +11,7 @@
       <h1>Grocer</h1>
       <button type="button" id="cart-button">
         Cart
-        &nbsp;<span>(<span id="cart-item-count">3</span>)</span>
+        &nbsp;<span>(<span id="cart-item-count">0</span>)</span>
       </button>
     </header>
 
@@ -20,7 +20,12 @@
         <button class="modal-close-button">X</button>
         <h3 class="cart-title">Your Cart</h3>
         <div class="cart-container">
-          <div class="cart-list"></div>
+          <ul class="cart-list"></ul>
+        </div>
+        <div class="total-container flex flex-row-between">
+          <button id="clear-button">Clear</button>
+          <span class="total-word">Total:</span>
+          <span id="total-amount"></span>
         </div>
       </div>
     </div>
