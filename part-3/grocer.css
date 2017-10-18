@@ -138,7 +138,7 @@ body {
   max-height: 90vh;
   max-width: 90vw;
   overflow: auto;
-  padding: 1em;
+  padding: 40px;
   position: relative;
 }
 
@@ -150,4 +150,31 @@ body {
 
 .showing-modal {
   overflow: hidden;
+}
+
+.cart-title {
+  text-align: center;
+}
+
+.cart-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.list-title {
+  font-weight: bold;
+  margin: 0 22px;
+}
+
+.list-item {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.modal-span {
+  margin: 5px 20px;
 }
