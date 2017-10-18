@@ -51,16 +51,16 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener('click',(event) => {
       cartCounter += 1;
       cartCount.innerText = cartCounter;
-      const addItem = document.createElement('div');
+      const addItem = document.createElement('tr');
       addItem.className = 'list-item';
       const itemName = event.target.previousElementSibling.previousElementSibling.innerText;
-      const nameSpan = document.createElement('span');
+      const nameSpan = document.createElement('td');
       nameSpan.className = 'modal-span';
       nameSpan.innerText = itemName;
       addItem.appendChild(nameSpan);
       const itemPrice = event.target.previousElementSibling.innerText;
-      const priceSpan = document.createElement('span');
-      priceSpan.className = 'modal-span';
+      const priceSpan = document.createElement('td');
+      priceSpan.className = 'modal-span price';
       priceSpan.innerText = itemPrice;
       addItem.appendChild(priceSpan);
       cartList.appendChild(addItem);
