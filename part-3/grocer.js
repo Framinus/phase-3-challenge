@@ -51,21 +51,29 @@ document.addEventListener("DOMContentLoaded", () => {
     button.addEventListener('click',(event) => {
       cartCounter += 1;
       cartCount.innerText = cartCounter;
-      const addItem = document.createElement('tr');
-      addItem.className = 'list-item';
+      const addItem = document.createElement('li');
+      addItem.className = 'item flex flex-row-between';
       const itemName = event.target.previousElementSibling.previousElementSibling.innerText;
-      const nameSpan = document.createElement('td');
+      const nameSpan = document.createElement('span');
       nameSpan.className = 'modal-span';
       nameSpan.innerText = itemName;
       addItem.appendChild(nameSpan);
       const itemPrice = event.target.previousElementSibling.innerText;
-      const priceSpan = document.createElement('td');
+      const priceSpan = document.createElement('span');
       priceSpan.className = 'modal-span price';
       priceSpan.innerText = itemPrice;
       addItem.appendChild(priceSpan);
       cartList.appendChild(addItem);
     });
   });
+
+  const clearButton = document.getElementById("clear-button");
+
+  clearButton.addEventListener('click', (event) => {
+    cartCounter = 0;
+    cartCount.innerText = cartCounter;
+    cartList.innerHTML = '';
+  })
 
 
 
