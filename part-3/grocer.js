@@ -1,6 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
 
+  // page navigation
+  const produceLink = document.getElementById('produceLink');
+  produceLink.addEventListener('click', (event) => {
+    window.location.hash = "#produce";
+  });
+
   // cart total function
   const totalAmount = document.getElementById("total-amount");
 
