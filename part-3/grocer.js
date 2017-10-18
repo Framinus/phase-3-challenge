@@ -8,12 +8,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let cartCounter = parseInt(cartCount.innerText, 10);
   let modal = document.querySelector('.modal');
+  const totalAmount = document.getElementById("total-amount");
+
+  // cart total function
+  const getTotal = () => {
+    const priceSpans = document.querySelectorAll('.price')
+    const priceArray = [];
+    priceSpans.forEach((priceSpan) => {
+      const noDollarSign = priceSpan.innerText.replace(/\$/g, '');
+      const numericPrice = parseFloat(noDollarSign, 10);
+       return priceArray.push(numericPrice);
+    });
+    let total = priceArray.reduce((total, amount) => {
+      return total + amount;
+    });
+    totalAmount.innerText = total;
+  }
 
   // utility functions for modal:
 
   const openModal = () => {
     modal.classList.add('modal-open');
     document.body.classList.add('showing-modal');
+    getTotal();
   };
 
   const closeModal = () => {
@@ -22,13 +39,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   cartButton.addEventListener('click', (event) => {
-    console.log('cart button clicked');
     event.preventDefault();
     openModal();
   });
 
   modalCloseButton.addEventListener('click', (event) => {
-    console.log('close button clicked');
     closeModal();
   })
 
@@ -39,13 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-
   // adding elements to the modal:
   const cartList = document.querySelector('.cart-list');
 
   // event listeners for product buttons:
   const itemButtons = document.querySelectorAll(".item-button");
-  console.log(itemButtons);
 
   itemButtons.forEach((button) => {
     button.addEventListener('click',(event) => {
@@ -67,13 +80,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // cart clear button function
   const clearButton = document.getElementById("clear-button");
 
   clearButton.addEventListener('click', (event) => {
     cartCounter = 0;
     cartCount.innerText = cartCounter;
     cartList.innerHTML = '';
-  })
+    totalAmount.innerText = '';
+  });
+
+
+
+
+
 
 
 
