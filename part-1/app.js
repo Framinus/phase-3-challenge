@@ -5,14 +5,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
-// GET requests to the /api/days/:day route responds with content type text/plain, as described in the example above
-
-app.get('/', (request, response) => {
-  response.status(200);
-  response.type('text/plain');
-  response.send('Go to /api/days/ and type in a day of the week after the last slash to get a number!');
-})
-
+// get route - returns number corresponding to day of week entered.
 app.get('/api/days/:day', (request, response) => {
   const day = request.params.day;
   const daysOfWeek = {
@@ -35,7 +28,7 @@ app.get('/api/days/:day', (request, response) => {
   }
 });
 
-
+// post route - returns a concated array from two arrays sent in request body.
 app.post('/api/array/concat', (request, response) => {
   const { array1, array2 } = request.body;
   if (Array.isArray(array1) && Array.isArray(array2)) {
@@ -49,7 +42,6 @@ app.post('/api/array/concat', (request, response) => {
     response.send({ "Error":"Input data should be of type array." });
   }
 });
-
 
 const port = process.env.PORT || 3000;
 
