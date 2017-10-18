@@ -1,4 +1,4 @@
-### Phase 3 Challenge
+# Phase 3 Challenge
 
 Welcome to my phase assessment repository!
 
