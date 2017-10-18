@@ -1,16 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
   console.log("DOM fully loaded");
 
-  const cartButton = document.getElementById("cart-button");
-  const modalCloseButton = document.querySelector('.modal-close-button');
-  const cartCount = document.getElementById("cart-item-count");
-  const cartModal = document.querySelector('.modal-window');
-
-  let cartCounter = parseInt(cartCount.innerText, 10);
-  let modal = document.querySelector('.modal');
+  // cart total function
   const totalAmount = document.getElementById("total-amount");
 
-  // cart total function
   const getTotal = () => {
     const priceSpans = document.querySelectorAll('.price')
     const priceArray = [];
@@ -22,31 +15,39 @@ document.addEventListener("DOMContentLoaded", () => {
     let total = priceArray.reduce((total, amount) => {
       return total + amount;
     });
-    totalAmount.innerText = total;
+    totalAmount.innerText = '$'+total;
   }
 
   // utility functions for modal:
+  let modal = document.querySelector('.modal');
 
+  // function called when cart button is clicked to open modal.
   const openModal = () => {
     modal.classList.add('modal-open');
     document.body.classList.add('showing-modal');
     getTotal();
   };
 
-  const closeModal = () => {
-    modal.classList.remove('modal-open');
-    document.body.classList.remove('showing-modal');
-  }
-
+  // opens cart modal.
+  const cartButton = document.getElementById("cart-button");
   cartButton.addEventListener('click', (event) => {
     event.preventDefault();
     openModal();
   });
 
+  // function called by two click events to close the modal.
+  const closeModal = () => {
+    modal.classList.remove('modal-open');
+    document.body.classList.remove('showing-modal');
+  }
+
+  // closes the modal by clicking on the close button.
+  const modalCloseButton = document.querySelector('.modal-close-button');
   modalCloseButton.addEventListener('click', (event) => {
     closeModal();
   })
 
+  // closes the modal by clicking on the shroud.
   modal.addEventListener('click', (event) => {
     if (event.target === modal) {
       event.preventDefault();
@@ -58,8 +59,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const cartList = document.querySelector('.cart-list');
 
   // event listeners for product buttons:
+  const cartCount = document.getElementById("cart-item-count");
+  let cartCounter = parseInt(cartCount.innerText, 10);
   const itemButtons = document.querySelectorAll(".item-button");
 
+  // creates a new element with name and price for each item button click.
   itemButtons.forEach((button) => {
     button.addEventListener('click',(event) => {
       cartCounter += 1;
